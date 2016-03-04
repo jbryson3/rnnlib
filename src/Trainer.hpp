@@ -437,6 +437,8 @@ struct Trainer : public DataExporter {
           out << "file = " << trainFiles.dataset->filename << endl;
           out << "index = " << trainFiles.seqIndex << endl;
           out << *seq;
+        } else {
+          out << trainFiles.seqIndex << ' of ' << trainFiles.numSequences() << endl;
         }
         differentiate(seq);
         if (!(batchLearn) && (++seqsSinceWeightUpdate >= seqsPerWeightUpdate)) {
